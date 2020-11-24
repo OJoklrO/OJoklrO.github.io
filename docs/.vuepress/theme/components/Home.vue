@@ -113,7 +113,9 @@ export default {
       return _url;
     },
   },
-  mounted() {},
+  mounted() {
+    console.log(this.$site.pages);
+  },
   computed: {
     data() {
       return this.$page.frontmatter;

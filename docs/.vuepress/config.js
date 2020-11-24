@@ -19,6 +19,8 @@ module.exports = {
     editLinks: false,
   },
   plugins: [
-    require('./plugin/vuepress-plugin-cat/index.js')
+    require('./plugin/vuepress-plugin-cat/index.js'),
+    require('./plugin/vuepress-plugin-pages/index.js'),
+    ['vuepress-plugin-code-copy', true],
   ]
 };
