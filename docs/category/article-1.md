@@ -9,9 +9,7 @@ title: Article 1
 ### title3
 
 ``` python 
-
 print('hello world')
-
 ```
 
 * asd
