@@ -8,8 +8,6 @@
     "build": "vuepress build docs"
   },
   "keywords": [],
-  "author": "Feng L.H.",
-  "license": "MIT",
   "devDependencies": {
     "vuepress": "^1.5.2"
   },

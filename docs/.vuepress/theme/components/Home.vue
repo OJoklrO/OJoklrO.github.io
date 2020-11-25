@@ -1,79 +1,6 @@
 <template xmlns="">
   <div>
     <main class="home" aria-labelledby="main-title">
-      <!-- <header class="hero">
-        <img
-          v-if="data.heroImage"
-          :src="$withBase(data.heroImage)"
-          :alt="data.heroAlt || 'hero'"
-          class="hero-logo"
-        />
-
-        <h1 v-if="data.heroText !== null" id="main-title">
-          {{ data.heroText || $title || "Hello" }}
-        </h1>
-
-        <p v-if="data.tagline !== null" class="description">
-          {{ data.tagline || $description || "Welcome to your VuePress site" }}
-        </p>
-
-        <a-button
-          type="primary"
-          shape="round"
-          size="large"
-          ghost
-          v-if="data.actionText && data.actionLink"
-        >
-          <a
-            v-if="isExtlink(data.actionLink)"
-            :href="link(data.actionLink)"
-            target="_blank"
-          >
-            {{ data.actionText }}
-          </a>
-          <RouterLink v-else :to="link(data.actionLink)">
-            {{ data.actionText }}
-          </RouterLink>
-        </a-button>
-        <a-button
-          type="primary"
-          shape="round"
-          size="large"
-          ghost
-          v-if="data.preactionText && data.preactionLink"
-          class="pre-btn"
-        >
-          <a
-            v-if="isExtlink(data.preactionLink)"
-            :href="link(data.preactionLink)"
-            target="_blank"
-          >
-            {{ data.preactionText }}
-          </a>
-          <RouterLink v-else :to="link(data.preactionLink)">
-            {{ data.preactionText }}
-          </RouterLink>
-        </a-button>
-      </header> -->
-
-      <!-- <div v-if="data.features && data.features.length" class="features">
-        <div
-          v-for="(feature, index) in data.features"
-          :key="index"
-          class="feature"
-        >
-          <h2>{{ feature.title }}</h2>
-          <p>{{ feature.details }}</p>
-        </div>
-      </div> -->
-
-      <!-- <Content class="theme-antdocs-content custom" /> -->
-    <!-- <time-line-node :pageInfo="{ title:'123', createdTime: '2020-10-2'}"></time-line-node>
-    <time-line-node :pageInfo="{ title:'123', createdTime: '2020-10-2'}"></time-line-node>
-    <time-line-node :pageInfo="{ title:'123', createdTime: '2020-10-2'}"></time-line-node>
-    <time-line-node :pageInfo="{ title:'123', createdTime: '2020-10-2'}"></time-line-node>
-     -->
-
     <time-line-node 
       v-for="item in pages"
       :key="item.key"
@@ -131,21 +58,30 @@ export default {
     },
   },
   mounted() {
-    this.pages.forEach((item)=>{
-      console.log(item);
-    })
+    console.log(this.pages);
   },
   computed: {
     pages() {
       let ps = this.$site.pages;
       let items = [];
+      let pattern = /\d{4}(\-|\/|.)\d{1,2}\1\d{1,2}/;  // date pattern
 
       ps.forEach((item)=>{
-        if (item.path.endsWith('.html'))
-          items.push(item);
+        if (item.path.endsWith('.html')) {
+          let temp = {
+            path: item.regularPath,
+            title: item.frontmatter.title,
+            date: item.frontmatter.date,
+            key: item.key,
+          }
+          temp.date = temp.date.toString().match(pattern)[0];
+          items.push(temp);
+        }
       });
 
-      return items;
+      return items.sort((a, b) => {
+        return dateCompare(a.date, b.date);
+      });
     },
     data() {
       return this.$page.frontmatter;
@@ -177,6 +113,48 @@ export default {
     },
   },
 };
+
+function dateCompare(d1, d2) {  // d1 < d2 = true
+    console.log(d1, d2);    
+    let d1c = getDateSplit(d1);
+    let d2c = getDateSplit(d2);
+
+    if (d1c.y !== d2c.y) {
+        console.log('y: ', d1c.y < d2c.y);
+        return -(d1c.y - d2c.y);
+    }
+    if (d1c.m !== d2c.m) {
+        console.log('m: ', d1c.m, d2c.m, d1c.m < d2c.m);
+        return -(d1c.m - d2c.m);
+    }
+    if (d1c.d !== d2c.d) {
+        console.log('d: ', d1c.d < d2c.d);
+        return -(d1c.d - d2c.d);
+    }
+    return 1;
+}
+
+function getDateSplit(d) {
+    if (d.includes('-')) {
+        return dateSplit(d, '-');
+    } else if (d.includes('/')) {
+        return dateSplit(d, '/');
+    }
+    return dateSplit(d, '.');
+}
+
+function dateSplit(d, c) {
+    let temp;
+    let s = d.split(c);
+    temp = {
+        y: parseInt(s[0]),
+        m: parseInt(s[1]),
+        d: parseInt(s[2]),
+    }
+
+    return temp;
+}
+
 </script>
 
 <style lang="less">
