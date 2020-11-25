@@ -1,7 +1,7 @@
 <template xmlns="">
   <div>
     <main class="home" aria-labelledby="main-title">
-      <header class="hero">
+      <!-- <header class="hero">
         <img
           v-if="data.heroImage"
           :src="$withBase(data.heroImage)"
@@ -54,9 +54,9 @@
             {{ data.preactionText }}
           </RouterLink>
         </a-button>
-      </header>
+      </header> -->
 
-      <div v-if="data.features && data.features.length" class="features">
+      <!-- <div v-if="data.features && data.features.length" class="features">
         <div
           v-for="(feature, index) in data.features"
           :key="index"
@@ -65,10 +65,22 @@
           <h2>{{ feature.title }}</h2>
           <p>{{ feature.details }}</p>
         </div>
-      </div>
+      </div> -->
 
-      <Content class="theme-antdocs-content custom" />
-    </main>
+      <!-- <Content class="theme-antdocs-content custom" /> -->
+    <!-- <time-line-node :pageInfo="{ title:'123', createdTime: '2020-10-2'}"></time-line-node>
+    <time-line-node :pageInfo="{ title:'123', createdTime: '2020-10-2'}"></time-line-node>
+    <time-line-node :pageInfo="{ title:'123', createdTime: '2020-10-2'}"></time-line-node>
+    <time-line-node :pageInfo="{ title:'123', createdTime: '2020-10-2'}"></time-line-node>
+     -->
+
+    <time-line-node 
+      v-for="item in pages"
+      :key="item.key"
+      :pageInfo="item" 
+    />
+
+     </main>
     <div v-if="data.footer" class="footer">
       <footer :class="{ 'footer-bottom': true }">
         {{ data.footer }}
@@ -95,14 +107,19 @@
 
 <script>
 import { ensureExt } from "../util";
+import TimeLineNode from './TimeLineNode.vue';
 
 export default {
   name: "Home",
   data() {
     return {};
   },
+  components: {
+    TimeLineNode
+  },
   methods: {
-    isExtlink(path) {
+    
+    TimeLineNodeisExtlink(path) {
       const Reg = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+$/;
       return Reg.test(path);
     },
@@ -114,9 +131,22 @@ export default {
     },
   },
   mounted() {
-    console.log(this.$site.pages);
+    this.pages.forEach((item)=>{
+      console.log(item);
+    })
   },
   computed: {
+    pages() {
+      let ps = this.$site.pages;
+      let items = [];
+
+      ps.forEach((item)=>{
+        if (item.path.endsWith('.html'))
+          items.push(item);
+      });
+
+      return items;
+    },
     data() {
       return this.$page.frontmatter;
     },
