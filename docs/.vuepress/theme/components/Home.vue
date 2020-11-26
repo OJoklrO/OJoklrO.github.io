@@ -6,8 +6,8 @@
       :key="item.key"
       :pageInfo="item" 
     />
+    </main>
 
-     </main>
     <div v-if="data.footer" class="footer">
       <footer :class="{ 'footer-bottom': true }">
         {{ data.footer }}
@@ -56,9 +56,6 @@ export default {
       _url = _url.length === 5 && _url === ".html" ? "" : _url;
       return _url;
     },
-  },
-  mounted() {
-    console.log(this.pages);
   },
   computed: {
     pages() {
@@ -115,20 +112,16 @@ export default {
 };
 
 function dateCompare(d1, d2) {  // d1 < d2 = true
-    console.log(d1, d2);    
     let d1c = getDateSplit(d1);
     let d2c = getDateSplit(d2);
 
     if (d1c.y !== d2c.y) {
-        console.log('y: ', d1c.y < d2c.y);
         return -(d1c.y - d2c.y);
     }
     if (d1c.m !== d2c.m) {
-        console.log('m: ', d1c.m, d2c.m, d1c.m < d2c.m);
         return -(d1c.m - d2c.m);
     }
     if (d1c.d !== d2c.d) {
-        console.log('d: ', d1c.d < d2c.d);
         return -(d1c.d - d2c.d);
     }
     return 1;

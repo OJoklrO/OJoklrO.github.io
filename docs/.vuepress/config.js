@@ -11,7 +11,7 @@ module.exports = {
   },
   themeConfig: {
     smoothScroll: true,
-    nav: require("./config/nav"),
+    nav: require("./nav"),
     logo: "/assets/mylogo.png",
     //sidebar: require("./config/sidebar"),
     lastUpdated: "最后更新",
@@ -22,6 +22,6 @@ module.exports = {
     require('./plugin/vuepress-plugin-cat/index.js'),
     require('./plugin/vuepress-plugin-pages/index.js'),
     ['vuepress-plugin-code-copy', true],
-    ['vuepress-plugin-auto-sidebar', {nav: true, sidebarDepth: 0}]
+    require('./plugin/vuepress-plugin-auto-sidebar/index.js')
   ]
 };

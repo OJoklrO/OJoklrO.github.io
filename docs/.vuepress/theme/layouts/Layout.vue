@@ -46,6 +46,10 @@ export default {
     Navbar
   },
 
+  mounted() {
+    console.log(this.sidebarItems);
+  },
+
   computed: {
     shouldShowNavbar () {
       const { themeConfig } = this.$site
