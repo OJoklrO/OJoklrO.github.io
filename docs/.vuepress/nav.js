@@ -1,1 +1,1 @@
-module.exports = [{"text":"category","items":[{"text":"category","link":"/category/"}]}];
+module.exports = [{"text":"archived","items":[{"text":"book","link":"/archived/book/"},{"text":"archived","link":"/archived/"}]},{"text":"category","items":[{"text":"category","link":"/category/"}]}];

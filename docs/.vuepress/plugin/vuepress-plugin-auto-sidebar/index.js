@@ -54,6 +54,12 @@ module.exports = (options, ctx) => ({
       const nav = genNav(SIDEBAR);
       const dest = path.join(ctx.sourceDir, ".vuepress/nav.js");
 
+      const s = path.join(ctx.sourceDir, ".vuepress/sidebar.js");
+
+      if (!fs.existsSync(s)) {
+        await fs.writeFileSync(s, `module.exports = ${JSON.stringify(SIDEBAR)};`);
+      }
+
       if (mergeOptions.nav && !fs.existsSync(dest)) {
         await fs.writeFileSync(dest, `module.exports = ${JSON.stringify(nav)};`);
       }

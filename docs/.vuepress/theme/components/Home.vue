@@ -44,6 +44,10 @@ export default {
   components: {
     TimeLineNode
   },
+
+  mounted() {
+    console.log(this.$site.pages);
+  },
   methods: {
     
     TimeLineNodeisExtlink(path) {

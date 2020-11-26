@@ -3,7 +3,7 @@
     <!-- Add ADs here -->
     <Ads v-if="this.$themeConfig.ads"/>
     <!-- <slot name="top" /> -->
-    <SidebarLinks :depth="2" :items="items" />
+    <SidebarLinks :depth="0" :items="items" />
     <!-- <slot name="bottom" /> -->
   </aside>
 </template>

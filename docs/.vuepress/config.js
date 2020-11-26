@@ -13,7 +13,7 @@ module.exports = {
     smoothScroll: true,
     nav: require("./nav"),
     logo: "/assets/mylogo.png",
-    //sidebar: require("./config/sidebar"),
+//    sidebar: require("./sidebar"),
     lastUpdated: "最后更新",
     repo: "https://github.com/OJoklrO",
     editLinks: false,
