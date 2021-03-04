@@ -1,7 +1,7 @@
 <template>
   <nav v-if="userLinks.length || repoLink" class="nav-links">
     <!-- <a-menu :mode="currentStyle" id="nav" v-model="currentPage" :selectable="false" v-if="!$page.frontmatter.home"> -->
-    <a-menu :mode="currentStyle" id="nav" v-model="currentPage" :selectable="false">
+    <!-- <a-menu :mode="currentStyle" id="nav" v-model="currentPage" :selectable="false">
       <template v-for="item in userLinks">
         <a-sub-menu v-if="item.type === 'links'" :key="link(item.link)">
           <span slot="title">
@@ -40,7 +40,7 @@
           </RouterLink>
         </a-menu-item>
       </template>
-    </a-menu>
+    </a-menu> -->
     <a v-if="repoLink" :href="repoLink" class="repo-link" target="_blank" rel="noopener noreferrer">
       <a-icon :type="repoLabel" />
     </a>
@@ -208,9 +208,9 @@ export default {
     float: none;
     margin-right: 0;
 
-    .repo-link {
-      display: none;
-    }
+    // .repo-link {
+    //   display: none;
+    // }
     .ant-menu-inline,
     .ant-menu-vertical,
     .ant-menu-vertical-left {

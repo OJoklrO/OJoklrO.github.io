@@ -11,6 +11,32 @@ date: 2020-10-1
 
 ``` python 
 print('hello world')
+
+for i in range(0, 10) :
+    print(i)
+    
+class A :
+    a = 1
+    
+    b = "aaa"
+```
+
+``` typescript
+enum Color {
+  Red,
+  Green,
+  Blue
+}
+console.log(Color.Red)
+
+// output.js
+var Color;
+(function (Color) {
+    Color[Color["Red"] = 0] = "Red";
+    Color[Color["Green"] = 1] = "Green";
+    Color[Color["Blue"] = 2] = "Blue";
+})(Color || (Color = {}));
+console.log(Color.Red);
 ```
 
 * asd

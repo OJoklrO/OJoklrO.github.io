@@ -1,36 +1,19 @@
 <template>
   <header class="navbar">
     <a-row>
-      <a-col :xs="0" :sm="0" :md="0" :lg="4" :xl="4" :xxl="4">
+      <a-col :xs="0" :sm="0" :md="0" :lg="0" :xl="6" :xxl="6">
       </a-col>
-      <a-col :xs="12" :sm="8" :md="10" :lg="6" :xl="6" :xxl="6">
+      <a-col :xs="16" :sm="16" :md="10" :lg="10" :xl="4" :xxl="4">
         <RouterLink :to="$localePath" :class="{'no-logo': !$site.themeConfig.logo ? true : false,'home-link': true}">
           <img v-if="$site.themeConfig.logo" class="logo" :src="$withBase($site.themeConfig.logo)" :alt="$siteTitle" />
           <span v-if="$siteTitle" ref="siteName" class="site-name">{{ $siteTitle }}</span>
         </RouterLink>
       </a-col>
-      <a-col :xs="0" :sm="0" :md="14" :lg="10" :xl="10" :xxl="10">
-        <NavLinks class="can-hide"/>
+      <a-col :xs="8" :sm="8" :md="14" :lg="14" :xl="8" :xxl="8">
+        <NavLinks/>
       </a-col>
-      <SidebarButton />
-      <a-col :xs="12" :sm="16" :md="0" :lg="4" :xl="4" :xxl="4"> </a-col>
+      <a-col :xs="0" :sm="0" :md="0" :lg="0" :xl="6" :xxl="6"> </a-col>
     </a-row>
-
-    <a-drawer
-      placement="left"
-      :closable="false"
-      @close="isOpenDrawer"
-      :visible="sidebar_visible"
-      wrapClassName="sidebarWrap"
-      v-if="isLoad"
-    >
-      <div slot="handle">
-        <div :class="{ 'drawer-open': sidebar_open, 'drawer-handle': true }" @click="isOpenDrawer">
-          <i class="drawer-handle-icon"></i>
-        </div>
-      </div>
-      <Sidebar :items="sidebarItems" class="mobile-sidebar"></Sidebar>
-    </a-drawer>
   </header>
 </template>
 

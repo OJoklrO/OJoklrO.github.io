@@ -1,6 +1,5 @@
 ---
 home: true
-actionText: Get Started →
 actionLink: /category/
-footer: MIT Licensed | Copyright © 2020 Joklr
+footer: MIT Licensed | Copyright © 2021 Joklr
 ---

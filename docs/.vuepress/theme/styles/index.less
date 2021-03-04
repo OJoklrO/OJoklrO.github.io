@@ -10,6 +10,8 @@
 
 @import './searchbox.less';
 @import './nprogress.less';
+
+// @import './prism.css';
 // @import './pwa.less';
 
 
@@ -42,8 +44,12 @@ body{
 }
 
 .page {
-  padding-left: @sidebarWidth - 4;
-  padding-right: @PagePadding + 2;
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  // padding-left: @PagePadding;
+  // padding-right: @PagePadding;
 }
 
 .navbar {
@@ -55,22 +61,6 @@ body{
   background-color: #fff;
   box-sizing: border-box;
   box-shadow: 0 2px 8px #f0f1f2;
-}
-
-.sidebar {
-  font-size: 14px;
-  background-color: #fff;
-  width: @sidebarWidth - 2;
-  position: fixed;
-  z-index: 10;
-  padding-left: @PagePadding + 5;
-  margin: 0;
-  top: @navbarHeight + 2;
-  left: 0;
-  bottom: 0;
-  box-sizing: border-box;
-  border-right: 1px solid @borderColor;
-  overflow-y: auto;
 }
 
 .@{contentClass}:not(.custom) {

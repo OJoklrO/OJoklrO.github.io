@@ -26,6 +26,12 @@
           <a href="https://github.com/QiShaoXuan/vuepress-plugin-cat" rel="noopener" target="_blank"
             >Cat</a
           >
+          <a href="https://github.com/shanyuhai123/vuepress-plugin-auto-sidebar" rel="noopener" target="_blank"
+            >Auto-Sidebar</a
+          >
+          <a href="https://github.com/znicholasbrown/vuepress-plugin-code-copy" rel="noopener" target="_blank"
+            >Code-Copy</a
+          >
         </div>
       </footer>
     </div>
@@ -158,10 +164,15 @@ function dateSplit(d, c) {
 @import "../styles/palette.less";
 
 .home {
-  padding: @navbarHeight 2rem 0;
+  // padding: @navbarHeight 2rem 0;
+  padding: @navbarHeight;
   max-width: @homePageWidth;
   margin: 0px auto;
   display: block;
+  // position: relative;
+  // max-width: 960px;
+  // margin: 0 auto;
+  // padding: 0;
   margin-bottom: 40px;
 
   .hero {
@@ -256,7 +267,8 @@ function dateSplit(d, c) {
   position: relative;
   color: #8c8c8c;
   margin-bottom: 0%;
-  // position: sticky;
+  // position: absolute;
+
 
   .footer-bottom {
     max-width: 1200px;
