@@ -39,5 +39,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         force: true
-        repository: git@github.com:OJoklrO/OJoklrO.github.io
+        repository: OJoklrO/OJoklrO.github.io
 
