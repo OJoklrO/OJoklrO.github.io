@@ -33,7 +33,6 @@ jobs:
     - run: echo blog.joklr.org > CNAME
     - run: git init  
     - run: git add -A
-    - run: git commit -m 'deploy'
     
     - name: push
       uses: actions-js/push@master
