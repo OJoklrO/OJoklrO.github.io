@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Update Blog
 
 on:
   push:
@@ -13,12 +13,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 15.x
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: dep
       uses: actions/setup-node@v1
       with:
         node-version: 15.x
-    - run: npm install --global yarn
-    - run: cd ../../
-    - run: yarn install
-    - run: /bin/bash deploy.sh
+    - name: build
+      run: npm install --global yarn
+        | cd ../../
+        | yarn install
+        |  set -e
+        | yarn build
+    
+    - name: init repo
+      run: cd docs/.vuepress/dist
+        | echo blog.joklr.org > CNAME
+        | git init  
+        | git add -A
+        | git commit -m 'deploy'
+    
+    - name: push
+      uses: actions-js/push@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        force: true
+        repository: git@github.com:OJoklrO/OJoklrO.github.io.git
+
