@@ -33,9 +33,12 @@ jobs:
     - run: echo blog.joklr.org > CNAME
     - run: git init  
     - run: git add -A
-    
+    - run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "Add changes" -a
     - name: push
-      uses: actions-js/push@master
+      uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         force: true
