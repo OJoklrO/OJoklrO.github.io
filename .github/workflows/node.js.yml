@@ -27,7 +27,6 @@ jobs:
     - run: set -e
     - run: yarn build
     
-    - name: init repo
     - run: cd docs/.vuepress/dist
     - run: echo blog.joklr.org > CNAME
     - run: git init  
