@@ -1,6 +1,6 @@
 ---
 title: Article 1
-date: 2020-10-1
+date: 2020-10-01
 ---
 
 # Article 1
