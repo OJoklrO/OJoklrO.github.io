@@ -37,7 +37,7 @@ jobs:
     - name: push
       uses: actions-js/push@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: 2ebd3bd895cf59545908b9a1e4bdee9d03dbdd74
         force: true
         repository: OJoklrO/OJoklrO.github.io
 
