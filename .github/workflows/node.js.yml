@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: test
-    - run: git config -l
+      run: git config -l
     
     - name: Checkout
       uses: actions/checkout@v2
