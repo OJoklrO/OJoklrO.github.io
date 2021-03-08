@@ -20,7 +20,6 @@ jobs:
     
     - name: Checkout with Git LFS
       uses: actions/checkout@v2
-    - run: git config --global --unset-all "http.https://github.com/.extraheader"
       
     
     - name: dep
@@ -40,6 +39,8 @@ jobs:
 
     - run: echo blog.joklr.org > CNAME
     - run: git init  
+    - run: git config --local --unset-all "http.https://github.com/.extraheader"
+    
     - run: git config --local user.email "github-actions[bot]@users.noreply.github.com"
     - run: git config --local user.name "github-actions[bot]"
 
