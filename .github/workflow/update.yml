@@ -1,0 +1,12 @@
+name: Update Blog
+
+on: push
+
+jobs:
+  update:
+    name: update
+    runs-on: ubuntu-latest
+    steps:
+    - name: update shell
+      run: |
+        /bin/bash ../../deploy.sh

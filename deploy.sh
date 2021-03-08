@@ -6,6 +6,8 @@ yarn build
 
 cd docs/.vuepress/dist
 
+echo blog.joklr.org > CNAME
+
 git init
 git add -A
 git commit -m 'deploy'
