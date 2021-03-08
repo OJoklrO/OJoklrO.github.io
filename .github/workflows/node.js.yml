@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: test
+    - run: git config -l
+    
     - name: Checkout
       uses: actions/checkout@v2
     
