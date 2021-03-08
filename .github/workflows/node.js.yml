@@ -20,6 +20,8 @@ jobs:
     
     - name: Checkout with Git LFS
       uses: actions/checkout@v2
+    - run: git config --local --unset-all "http.https://github.com/.extraheader"
+      
     
     - name: dep
       uses: actions/setup-node@v1
@@ -33,12 +35,13 @@ jobs:
     - run: yarn build
     
     - run: mv docs/.vuepress/dist ~/
+
     - run: cd ~/dist
+    - name: asdads
     - run: echo blog.joklr.org > CNAME
     - run: git init  
     - run: git config --local user.email "github-actions[bot]@users.noreply.github.com"
     - run: git config --local user.name "github-actions[bot]"
-    - run: git config --local --unset-all "http.https://github.com/.extraheader"
 
     - run: git add .
     - run: git commit -m "Add changes"
