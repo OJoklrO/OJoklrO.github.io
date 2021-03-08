@@ -22,10 +22,10 @@ jobs:
         node-version: 15.x
     - name: build
       run: npm install --global yarn
-        | cd ../../
-        | yarn install
-        |  set -e
-        | yarn build
+    - run: cd ../../
+    - run: yarn install
+    - run: set -e
+    - run: yarn build
     
     - name: init repo
       run: cd docs/.vuepress/dist
