@@ -38,7 +38,7 @@ jobs:
     - run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git config --local --unset-all "http.https://github.com/.extraheader"
+        git config --local --unset-all "http.https://github.com/OJoklrO/OJoklrO.github.io/.extraheader"
 
     - run: git add .
     - run: git commit -m "Add changes"
