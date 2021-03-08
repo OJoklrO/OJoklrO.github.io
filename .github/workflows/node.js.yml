@@ -20,7 +20,7 @@ jobs:
     
     - name: Checkout with Git LFS
       uses: actions/checkout@v2
-    - run: git config --local --unset-all "http.https://github.com/.extraheader"
+    - run: git config --global --unset-all "http.https://github.com/.extraheader"
       
     
     - name: dep
