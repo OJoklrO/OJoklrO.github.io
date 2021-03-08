@@ -37,7 +37,7 @@ jobs:
     - run: mv docs/.vuepress/dist ~/
 
     - run: cd ~/dist
-    - name: asdads
+
     - run: echo blog.joklr.org > CNAME
     - run: git init  
     - run: git config --local user.email "github-actions[bot]@users.noreply.github.com"
