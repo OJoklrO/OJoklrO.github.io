@@ -28,11 +28,11 @@ jobs:
     - run: yarn build
     
     - name: init repo
-      run: cd docs/.vuepress/dist
-        | echo blog.joklr.org > CNAME
-        | git init  
-        | git add -A
-        | git commit -m 'deploy'
+    - run: cd docs/.vuepress/dist
+    - run: echo blog.joklr.org > CNAME
+    - run: git init  
+    - run: git add -A
+    - run: git commit -m 'deploy'
     
     - name: push
       uses: actions-js/push@master
