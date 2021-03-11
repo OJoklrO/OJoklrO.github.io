@@ -39,13 +39,13 @@ jobs:
 
     - run: echo blog.joklr.org > CNAME
     - run: git init  
-    - run: git config --local --unset-all "http.https://github.com/.extraheader"
     
     - run: git config --local user.email "github-actions[bot]@users.noreply.github.com"
     - run: git config --local user.name "github-actions[bot]"
 
     - run: git add .
     - run: git commit -m "Add changes"
+    - run: git config --local --unset-all "http.https://github.com/.extraheader"
     - name: push
       uses: ad-m/github-push-action@master
       with:
