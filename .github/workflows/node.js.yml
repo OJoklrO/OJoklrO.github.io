@@ -33,10 +33,7 @@ jobs:
     - run: set -e
     - run: yarn build
     
-    - run: mv docs/.vuepress/dist ~/dist
-
-    - run: echo blog.joklr.org > CNAME
-    - run: git init
+    - run: mv docs/.vuepress/dist ./dist
     
     - run: git config --local user.email "github-actions[bot]@users.noreply.github.com"
     - run: git config --local user.name "github-actions[bot]"
