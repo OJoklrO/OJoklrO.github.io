@@ -79,6 +79,7 @@ export default {
             path: item.regularPath,
             title: item.frontmatter.title,
             date: item.frontmatter.date,
+            time: item.frontmatter.time,
             key: item.key,
           }
           temp.date = temp.date.toString().match(pattern)[0];
@@ -87,7 +88,7 @@ export default {
       });
 
       return items.sort((a, b) => {
-        return dateCompare(a.date, b.date);
+        return String(a.date+"-"+a.time) <= String(b.date+"-"+b.time) ? 1 : -1
       });
     },
     data() {
@@ -134,6 +135,15 @@ function dateCompare(d1, d2) {  // d1 < d2 = true
     if (d1c.d !== d2c.d) {
         return -(d1c.d - d2c.d);
     }
+    if (d1c.hh !== d2c.hh) {
+        return d1c.hh - d2c.hh;
+    }
+    if (d1c.mm !== d2c.mm) {
+        return d1c.mm - d2c.mm;
+    }
+    if (d1c.ss !== d2c.ss) {
+        return d1c.ss - d2c.ss;
+    }   
     return 1;
 }
 
@@ -153,6 +163,9 @@ function dateSplit(d, c) {
         y: parseInt(s[0]),
         m: parseInt(s[1]),
         d: parseInt(s[2]),
+        hh: parseInt(s[3]),
+        mm: parseInt(s[4]),
+        ss: parseInt(s[5])
     }
 
     return temp;
