@@ -34,6 +34,7 @@ jobs:
     - run: yarn build
     
     - run: mv docs/.vuepress/dist ./dist
+    - run: ls
     
     - run: git config --local user.email "github-actions[bot]@users.noreply.github.com"
     - run: git config --local user.name "github-actions[bot]"
