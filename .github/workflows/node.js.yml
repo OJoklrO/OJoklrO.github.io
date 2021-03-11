@@ -46,10 +46,10 @@ jobs:
     - run: git add .
     - run: git commit -m "Add changes"
     - run: git config --local --unset-all "http.https://github.com/.extraheader"
-    - name: push
+    - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        force: true
         repository: OJoklrO/OJoklrO.github.io
+        force: true
 
