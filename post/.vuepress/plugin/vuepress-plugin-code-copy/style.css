@@ -4,8 +4,8 @@
 .code-copy {
     position: absolute !important;
 
-    top: 1rem;
-    right: 1rem;
+    top: .1rem;
+    right: .5rem;
     color: #bfbfbf;
 
     z-index: 10;
