@@ -1,8 +1,0 @@
-{
-  "name": "vuepress-plugin-sidebar-and-navbar",
-  "version": "1.0.0",
-  "description": "auto sidebar and navbar",
-  "main": "index.js",
-  "author": "OJoklrO",
-  "license": "GPL3.0-or-later"
-}

@@ -141,9 +141,10 @@ span {
 }
 
 .button {
-    float: right;
-    margin-bottom: 0%;
-    margin-right: 5px;
+    bottom: .5em;
+    right: .5em;
+
+    position: absolute;
 
     color: #bfbfbf;
 }
