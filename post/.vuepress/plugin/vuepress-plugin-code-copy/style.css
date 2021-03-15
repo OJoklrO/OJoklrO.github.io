@@ -2,4 +2,11 @@
     opacity: .75;
 }
 .code-copy {
+    position: absolute !important;
+
+    top: 1rem;
+    right: 1rem;
+    color: #bfbfbf;
+
+    z-index: 10;
 }
