@@ -19,27 +19,31 @@ jobs:
       uses: actions/checkout@v2
       
     
-    - name: dep
+    - name: import nodejs
       uses: actions/setup-node@v1
       with:
         node-version: 15.x
-        
-    - run: npm install --global yarn
-    - run: cd ../../
-    - run: yarn install
-    - run: set -e
-    - run: yarn build
     
-    - run: rm -rf ./docs
-    - run: mv post/.vuepress/dist ./docs
-    - run: echo "blog.Joklr.org" > ./docs/CNAME
+    - name: install dependencies
+    - run: |
+        npm install --global yarn
+        cd ../../
+        yarn install
     
-    - run: git config --local user.email "github-actions[bot]@users.noreply.github.com"
-    - run: git config --local user.name "github-actions[bot]"
-
-    - run: git add .
-    - run: git commit -m "Add changes"
-    - run: git config --local --unset-all "http.https://github.com/.extraheader"
+    - name: build page
+    - run: |
+        yarn build
+        rm -rf ./docs
+        mv post/.vuepress/dist ./docs
+        echo "blog.Joklr.org" > ./docs/CNAME
+    
+    - name: git repo init
+    - run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add .
+        git commit -m "Add changes"
+    
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
