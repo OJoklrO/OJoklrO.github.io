@@ -25,20 +25,20 @@ jobs:
         node-version: 15.x
     
     - name: install dependencies
-    - run: |
+      run: |
         npm install --global yarn
         cd ../../
         yarn install
     
     - name: build page
-    - run: |
+      run: |
         yarn build
         rm -rf ./docs
         mv post/.vuepress/dist ./docs
         echo "blog.Joklr.org" > ./docs/CNAME
     
     - name: git repo init
-    - run: |
+      run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add .
