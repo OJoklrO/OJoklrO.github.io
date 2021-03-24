@@ -20,10 +20,6 @@
         <slot name="page-bottom" />
       </template>
     </Page>
-    <!-- <Sidebar
-      :items="sidebarItems"
-    >
-    </Sidebar> -->
 
     <a-back-top v-if="$themeConfig.backToTop"/>
   </div>
