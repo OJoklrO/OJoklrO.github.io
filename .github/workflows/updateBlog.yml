@@ -36,10 +36,10 @@ jobs:
       with:
         node-version: 15.x
     
-#     - name: install dependencies
-#       run: npm install --global yarn
-#     - run: cd ../../
-#     - run: yarn install
+    - name: install dependencies
+      run: npm install --global yarn
+    - run: cd ../../
+    - run: yarn install
     
     - name: build page
       run: yarn build
