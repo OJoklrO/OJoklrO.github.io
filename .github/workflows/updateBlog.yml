@@ -45,7 +45,7 @@ jobs:
       run: yarn build
     - run: rm -rf ./docs
     - run: mv post/.vuepress/dist ./docs
-    - run: echo "blog.Joklr.org" > ./docs/CNAME
+    # - run: echo "blog.Joklr.org" > ./docs/CNAME
     
     - name: git repo init
       run: git config --local user.email "github-actions[bot]@users.noreply.github.com"
